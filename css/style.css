@@ -114,13 +114,59 @@ header .more:hover::after {transform: rotate(135deg);}
     display: flex;
 }
     .section2 .left {
+        display: flex; justify-content: end;
         width: 50%; background: url(../images/sec2_img1.png);
+        background-size: cover; /* 배경 이미지가 항상 꽉 차게 함 */
+        padding: 113px 0;
     }
+    .section2 .left ul {
+        display: flex; flex-direction: column; gap: 96px;
+    }
+    .section2 .left ul li {
+        position: relative;
+    }
+    .section2 .left ul li::before {
+        content: ""; /* 반드시 기재 (내용이 없어도) */
+        position: absolute; top: 18px;
+        width: 17px; height: 1px; background: #fff;
+    }
+    .section2 .left .textbox {
+        width: 560px; color: #fff;
+    }
+    .section2 .left .textbox strong {
+        font-size: 24px; padding-left: 34px;
+    }
+    .section2 .left .textbox p {
+        font-size: 14px; margin-top: 19px; padding-left: 34px;
+    }
+
     .section2 .right {
-        width: 50%; background: url(../images/sec2_img1.png);
+        width: 50%; background: url(../images/sec2_img2.png); background-size: cover;
+    }
+    .section2 .right .textbox {
+        width: 560px;
     }
 
-.section3 {}
+.section3 {
+    padding: 113px 0;
+}
+    .section3 h2 {
+        font-size: 40px; margin-bottom: 37px; text-align: center; font-weight: 500;
+    }
+    .section3 ul {
+        display: flex; justify-content: space-between;
+    }
+    .section3 ul li a {
+        display: flex; flex-direction: column; align-items: center;
+    }
+    .section3 ul li a .ex {
+        font-size: 16px; margin-top: 20px;
+    }
+    .section3 ul li a p {
+        font-size: 18px; margin-top: 8px;
+    }
 
-
-footer {}
+footer {
+    display: flex; justify-content: center; align-items: center;
+    background: #000; padding: 90px 0;
+}
