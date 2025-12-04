@@ -72,8 +72,8 @@ header .more::after {
     content: ''; width: 4px; height: 18px; background: #000; transform: rotate(90deg); transition: 0.3s;
 }
 /* 기존 작업을 최대한 건드리지 않기 위해 사용. before는 내용의 앞에, after는 내용의 뒤에 들어감 */
-header .more:hover::before {transform: rotate(45deg);}
-header .more:hover::after {transform: rotate(135deg);}
+header .more:hover::before {transform: rotate(45deg); transition: 0.3s;}
+header .more:hover::after {transform: rotate(135deg); transition: 0.3s;}
 
 
 .hero {
