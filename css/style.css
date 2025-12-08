@@ -7,7 +7,8 @@ body {font-family: "Work Sans", sans-serif;}
 
 
 .container {
-    width: 1100px; margin: 0 auto;
+    max-width: 1100px; /* 반응형을 위해 최대 너비로 변경 */
+    margin: 0 auto;
 }
 .btn_view {
     display: inline-block;
@@ -41,7 +42,7 @@ header nav {
     }
     header nav .gnb li a {
         display: block;
-        padding: 28px 40px;
+        padding: 28px 2vw;
     }
         header nav .gnb li .lnb {
             position: absolute;
@@ -60,9 +61,11 @@ header nav {
             height: 280px; transition: 0.3s;
         }
 header .more {
+    position: relative; z-index: 20;
     display: flex; justify-content: center; align-items: center;
     width: 150px;
 }
+
 header .more::before {
     position: absolute;
     content: ''; width: 4px; height: 18px; background: #000;
@@ -72,15 +75,29 @@ header .more::after {
     content: ''; width: 4px; height: 18px; background: #000; transform: rotate(90deg); transition: 0.3s;
 }
 /* 기존 작업을 최대한 건드리지 않기 위해 사용. before는 내용의 앞에, after는 내용의 뒤에 들어감 */
-header .more:hover::before {transform: rotate(45deg); transition: 0.3s;}
-header .more:hover::after {transform: rotate(135deg); transition: 0.3s;}
+header .more.on::before {
+    transform: rotate(45deg); transition: 0.3s; background: #fff;
+}
+header .more.on::after {
+    transform: rotate(135deg); transition: 0.3s; background: #fff;
+}
 
+.brand {
+    position: absolute; left: 0; top: 0;
+    display: none;
+    width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.8);
+}
+.brand p {
+    display: flex; justify-content: center; align-items: center;
+    height: 100%; font-size: 100px; color: #fff;
+}
 
 .hero {
     position: relative;
 }
 .hero .textbox {
     position: absolute; z-index: 2; left: 50%; top: 50%;
+    display: none;
     width: 600px; padding: 60px 70px; box-sizing: border-box; margin-left: 140px; margin-top: -195px;
     background: rgba(27, 3, 0, 70%);
 }
@@ -168,3 +185,31 @@ footer {
     display: flex; justify-content: center; align-items: center;
     background: #000; padding: 90px 0;
 }
+
+@media screen and (max-width: 830px) {
+    header {
+        flex-wrap: wrap;/* 공간이 부족하면 줄바꿈 */
+    } 
+    header h1 {
+        width: 100%;
+    }
+    header .gnb {
+        justify-content: center;
+        background: rgba(198, 73, 50, 0.8);
+    }
+    header .gnb a {
+        color: #fff;
+    }
+    header .more {
+        position: absolute; right: 30px; top: 10px;
+        width: 50px; height: 30px;
+    }
+
+    .hero {
+        height: 100vh;
+    }
+    .hero .swiper {
+        height: 100%;
+    }
+}
+/* [반응형] 화면 조건(max-width)일 때 대상(header 등)은 ~ */
